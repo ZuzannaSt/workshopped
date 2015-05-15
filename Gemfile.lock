@@ -124,6 +124,8 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
     pusher-client (0.6.0)
       json
       websocket (~> 1.0)
@@ -231,6 +233,7 @@ DEPENDENCIES
   konf
   pg
   pry
+  pry-rails
   quiet_assets
   rails (= 4.1.8)
   rspec-rails
