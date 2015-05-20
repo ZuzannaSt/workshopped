@@ -1,19 +1,31 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :destroy, :create]
 
   expose(:review)
   expose(:product)
+  expose(:category)
+  expose_decorated(:reviews, ancestor: :product)
 
   def edit
   end
 
   def create
     self.review = Review.new(review_params)
+    review.user = current_user
 
     if review.save
       product.reviews << review
       redirect_to category_product_url(product.category, product), notice: 'Review was successfully created.'
     else
-      render action: 'new'
+      render 'products/show'
+    end
+  end
+
+  def update
+    if self.review.update(review_params)
+      redirect_to category_product_url(product.category, product), notice: 'Review was successfully updated.'
+    else
+      render 'products/show'
     end
   end
 

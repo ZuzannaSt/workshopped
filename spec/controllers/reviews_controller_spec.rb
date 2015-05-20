@@ -61,7 +61,7 @@ describe ReviewsController do
 
         it 'redirects to the assigned product' do
           post :create, { review: valid_attributes, product_id: product.to_param, category_id: category.to_param }
-          expect(response).to redirect_to(category_product_url(Category.first, product))
+          expect(response).to redirect_to(category_product_url(product.category, product))
         end
 
         describe 'with invalid params' do
@@ -99,7 +99,7 @@ describe ReviewsController do
         it 'updates the requested review' do
           allow_any_instance_of(Review).to receive(:save).and_return(true)
           put :update, { id: review.to_param, review: { 'content' => 'New value' }, product_id: product.to_param, category_id: category.to_param }
-          expect(response).to redirect_to(category_product_path(category, product))
+          expect(response).to redirect_to(category_product_path(product.category, product))
         end
 
         it 'expose the requested review' do
@@ -109,7 +109,7 @@ describe ReviewsController do
 
         it 'redirects to the reviewed product' do
           put :update, { id: review.to_param, review: valid_attributes, product_id: product.to_param, category_id: category.to_param }
-          expect(response).to redirect_to(category_product_url(category, product))
+          expect(response).to redirect_to(category_product_url(product.category, product))
         end
       end
 
@@ -123,7 +123,7 @@ describe ReviewsController do
         it "re-renders the 'edit' template" do
           allow_any_instance_of(Product).to receive(:save).and_return(false)
           put :update, { id: review.to_param, review: { 'title' => 'invalid value' }, product_id: product.to_param, category_id: category.to_param }
-          expect(response).to redirect_to(category_product_url(category, product))
+          expect(response).to redirect_to(category_product_url(product.category, product))
         end
       end
     end
