@@ -1,0 +1,53 @@
+.less-margin {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.jumbotron {
+  /* beautiful stock image from Pexel.com */
+  background: url('sunglasses-apple-iphone-desk.jpg') center no-repeat;
+  color: #fff;
+  width: 100%;
+  min-height: 500px;
+  display: table;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.vertical {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.btn {
+  border-radius: 0px;
+}
+
+.thumbnail {
+  border-radius: 0px;
+  padding: 30px;
+}
+
+.thumbnail:hover {
+  background-color: #5cb85c;
+  color: #fff;
+}
+
+a .thumbnail {
+  color: #000;
+}
+
+a .thumbnail:hover {
+  color: #fff;
+}
+
+span {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+span a{
+  color: #5cb85c;
+}

@@ -1,7 +1,8 @@
 %nav.navbar.navbar-default
   .container-fluid
     .navbar-header
-      %span.navbar-brand #{AppConfig.workshops_name}
+      =link_to root_path do
+        %span.navbar-brand #{AppConfig.workshops_name}
     %p.navbar-text.navbar-right
       - if current_user
         = current_user.decorate.fullname

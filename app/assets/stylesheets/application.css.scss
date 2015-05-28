@@ -1,11 +1,25 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "home";
+
+.row {
+  margin: 0;
+}
 
 .navbar {
   margin-bottom: 0px;
+  border-radius: 0px;
 }
 
-.col-lg-12 {
-  padding: 0px;
+.navbar-right a {
+  color: #5cb85c;
+}
+
+.navbar-right a:hover{
+  color: #449d44;
+}
+
+a:hover {
+  text-decoration: none;
 }
