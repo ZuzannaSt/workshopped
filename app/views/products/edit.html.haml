@@ -1,7 +1,15 @@
-%h1 Editing product
+.col-md-6.col-md-offset-3
+  .page-header
+    %h1
+      %i.fa.fa-pencil
+      edit
+      = product.title
+      %small
+        from
+        = category.name
+        category
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Show', category_product_path(category, product)
-\|
-= link_to 'Back', category_path(category)
+  = link_to 'Show', category_product_path(category, product), class: "btn btn-default"
+  = link_to 'Back', category_path(category), class: "btn btn-default"

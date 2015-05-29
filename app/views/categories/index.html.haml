@@ -1,20 +1,31 @@
 %h1 Listing categories
-
-%table.table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-
-  - categories.each do |category|
-    %tr
-      %td= category.name
-      %td= link_to 'Show', category
-      - if current_user && current_user.admin?
-        %td= link_to 'Edit', edit_category_path(category)
-        %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
-
 %br
-- if current_user && current_user.admin?
-  = link_to 'New Category', new_category_path
+
+.row
+  - if current_user && current_user.admin?
+    %span
+      = link_to new_category_path do
+        %i.fa.fa-plus
+        New category
+%br
+
+.row
+  - categories.each_slice(4) do |slice|
+    - slice.each do |category|
+      .col-lg-3.text-center
+        =link_to category do
+          .thumbnail.list-group
+            %i.fa.fa-tag.fa-3x
+            %h2= category.name
+        - if current_user && current_user.admin?
+          .list-group
+            %span
+              = link_to edit_category_path(category) do
+                %i.fa.fa-pencil
+                Edit
+            %span
+              = link_to category, method: :delete, data: { confirm: 'Are you sure?' } do
+                %i.fa.fa-trash
+                Destroy
+
+= link_to 'Back to the home page', root_path, class: 'btn btn-default'

@@ -1,20 +1,33 @@
-%h1 Listing products
+%h1
+  Listing products for
+  %b= category.name
+%br
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Price
-    %th
-    %th
-    %th
+.row
+  - if current_user
+    %span
+      = link_to new_category_product_path do
+        %i.fa.fa-plus
+        New product
+%br
 
-  - products.each do |product|
-    %tr
-      %td= product.title
-      %td= product.description
-      %td= product.price
-      %td= link_to 'Show', category_product_path(product.category, product)
-      - if current_user && current_user == product.user
-        %td= link_to 'Edit', edit_category_product_path(product.category, product)
-        %td= link_to 'Destroy', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }
+.row
+  - products.each_slice(4) do |slice|
+    -slice.each do |product|
+      .col-lg-3.text-center
+        =link_to category_product_path(product.category, product) do
+          .thumbnail.list-group
+            %i.fa.fa-rocket.fa-3x
+            %h2= product.title
+        - if current_user && current_user == product.user
+          .list-group
+            %span
+              = link_to edit_category_product_path(product.category, product) do
+                %i.fa.fa-pencil
+                Edit
+            %span
+              = link_to category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' } do
+                %i.fa.fa-trash
+                Destroy
+
+= link_to 'Back to categories', categories_path, class: 'btn btn-default'

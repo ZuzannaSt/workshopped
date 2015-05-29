@@ -1,5 +1,11 @@
-%h1 New category
+.col-md-6.col-md-offset-3
+  .page-header
+    %h1
+      %i.fa.fa-plus
+      new category
+      %small
+        for your page
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+  = link_to 'Back', categories_path, class: 'btn btn-default'

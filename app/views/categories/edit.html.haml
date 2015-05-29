@@ -1,7 +1,13 @@
-%h1 Editing category
+.col-md-6.col-md-offset-3
+  .page-header
+    %h1
+      %i.fa.fa-pencil
+      edit
+      = category.name
+      %small
+        edit category
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Show', category
-\|
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+  = link_to 'Show', category, class: 'btn btn-default'
+  = link_to 'Back', categories_path, class: 'btn btn-default'

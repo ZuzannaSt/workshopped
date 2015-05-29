@@ -1,16 +1,38 @@
-%p
-  %b Name:
-  = category.name
+.less-margin
+  .jumbotron-category
+    .vertical
+      %h1.moved
+        %i.fa.fa-tag.fa-1x
+        %b= category.name.upcase
 
-%p
-  - category.products.each do |product|
-    = link_to product.title, category_product_path(product.category, product)
+.row
+  - if current_user && current_user.admin?
+    %span
+      = link_to edit_category_path(category) do
+        %i.fa.fa-pencil
+        Edit this category
+%br
 
-- if current_user && current_user.admin?
-  %p
-    %h3 New product
-    = render 'products/form'
+.row.lower
+  - category.products.each_slice(3) do |slice|
+    -slice.each do |product|
+      .col-lg-4.text-center
+        = link_to category_product_path(product.category, product) do
+          .thumbnail
+            %h3= product.title
+            %p=h truncate(product.description, length: 680)
 
-  = link_to 'Edit', edit_category_path(category)
-  \|
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+  .col-lg-4
+    - if current_user && current_user.admin?
+      .rendered-form
+        .page-header
+          %h1
+            %i.fa.fa-plus
+            product
+            %small to
+            %small= category.name
+
+          = render 'products/form'
+
+%br
+= link_to 'Back to categories', categories_path, class: 'btn btn-default'

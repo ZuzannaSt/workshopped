@@ -1,26 +1,50 @@
-%p#error= flash[:error]
+.row
+  .col-lg-5.col-lg-offset-1
+    - if current_user && current_user == product.user
+      %br
+      %span
+        = link_to edit_category_product_path(category.id, product.id) do
+          %i.fa.fa-pencil
+          Edit this product
 
-%p
-  %b Title:
-  = product.title
-%p
-  %b Description:
-  = product.description
-%p
-  %b Price:
-  = product.price
+.row
+  .col-lg-5.col-lg-offset-1
+    .product
+      %h2= product.title.humanize
+      %p
+        = product.description
+      .row
+        .col-lg-4.col-sm-6
+          %span
+            %h3
+              %i.fa.fa-dollar.fa-1x
+              = product.price
+        .col-lg-6.col-sm-6
+          %span
+            = link_to product.category do
+              %h3
+                %i.fa.fa-tag.fa-1x
+                = product.category.name
 
-%p
-  %b Category
-  = product.category.name
+  .col-lg-3.col-lg-offset-1
+    - if product.reviews.any?
+      %h3
+        %i.fa.fa-star
+        reviews from users
+      = render reviews
+    - else
+      %h3
+        %i.fa.fa-question
+        no reviews by far!
 
-%h3 Reviews
-- if current_user
-  = render 'reviews/form'
+    - if current_user
+      .rendered-form
+        .page-header
+          %h2
+            Rate
+            %small and review!
+        = render 'reviews/form'
 
-= render reviews
-
-- if current_user && current_user == product.user
-  = link_to 'Edit', edit_category_product_path(category.id, product.id)
-  \|
-= link_to 'Back', category_products_path, class: 'btn btn-primary'
+.row
+  .col-lg-5.col-lg-offset-1
+    = link_to 'Back to products', category_products_path, class: 'btn btn-default'

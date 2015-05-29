@@ -1,9 +1,10 @@
 class HomeController < ApplicationController
   expose(:categories)
-  expose(:category)
   expose(:products)
 
   def index
+    @category = Category.first
+    @product = @category.products.first
   end
 
 end

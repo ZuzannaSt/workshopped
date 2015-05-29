@@ -1,0 +1,25 @@
+.product {
+  display: block;
+  padding: 20px 60px;
+  margin-top: 30px;
+  border: 1px solid #ddd;
+}
+
+.product p {
+  margin-top: 20px;
+  font-style: italic;
+  text-align: justify;
+  text-indent: 50px;
+}
+
+.product h2 {
+  font-weight: 600;
+}
+
+.links {
+  list-style: none;
+}
+
+.links span {
+  display: inline-block;
+}

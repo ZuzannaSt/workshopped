@@ -8,14 +8,17 @@
 
   .row.text-center
     .col-md-4
-      .thumbnail
-        %i.fa.fa-tags.fa-5x
-        %h2 Cool Categories
+      = link_to categories_path do
+        .thumbnail
+          %i.fa.fa-tags.fa-5x
+          %h2 Cool Categories
     .col-md-4
-      .thumbnail
-        %i.fa.fa-rocket.fa-5x
-        %h2 Cosmic Products
+      = link_to category_products_path(@category) do
+        .thumbnail
+          %i.fa.fa-rocket.fa-5x
+          %h2 Cosmic Products
     .col-md-4
-      .thumbnail
-        %i.fa.fa-heart.fa-5x
-        %h2 Heartfelt Reviews
+      = link_to category_product_path(@category, @product) do
+        .thumbnail
+          %i.fa.fa-heart.fa-5x
+          %h2 Heartfelt Reviews
