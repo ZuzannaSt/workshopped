@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  after_filter :user_activity
 
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
@@ -16,5 +17,9 @@ class ApplicationController < ActionController::Base
 
     def authenticate_admin
       redirect_to new_user_session_path unless current_user.admin?
+    end
+
+    def user_activity
+      current_user.try :touch
     end
 end

@@ -1,0 +1,19 @@
+.reviews
+  - if user.reviews.any?
+    %h4 Last reviews from #{user.firstname}:
+    - user.last_reviews.each do |review|
+      .well
+        %p.review
+          %h5
+            %small Title:
+            = review.product.title
+          %h5
+            %small Rate:
+            = review.decorate.rating
+          %h5
+            %small Date:
+            = review.created_at.to_formatted_s(:pretty_date)
+            %hr.divider
+        %p= review.content
+  - else
+    %h4 #{user.firstname} has no reviews!

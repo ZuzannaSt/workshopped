@@ -1,0 +1,43 @@
+.row
+  .col-lg-5.col-lg-offset-1
+    .page-header
+      %h1
+        = user.fullname
+        - if user.online?
+          %small online
+          %i.fa.fa-circle
+        - else
+          %small offline
+
+.row
+  .col-lg-5.col-lg-offset-1
+    .profile
+      %i.fa.fa-user.fa-5x.fa-border.pull-left
+      %h4
+        %small First name:
+        = user.firstname
+      %h4
+        %small Last name:
+        = user.lastname
+      - if current_user && current_user == user
+        %h4
+          %small Email:
+          = user.email
+      - else
+        %br
+    %br
+    %hr.divider
+    .joined
+      %h5
+        %small Joined:
+        = user.joined
+      %h5
+        %small Last active:
+        = user.last_active
+      %h5
+        %small Reviewed:
+        = user.count_reviews
+        products
+
+  .col-lg-5
+    = render "users/reviews"

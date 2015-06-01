@@ -26,7 +26,11 @@ class ReviewDecorator < Draper::Decorator
     end
   end
 
+  def link_to_author
+    link_to content_tag(:em, author), model.user
+  end
+
   def rating_with_author
-    rating + content_tag(:em, author)
+    rating + link_to_author
   end
 end

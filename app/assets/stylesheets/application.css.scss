@@ -16,13 +16,15 @@
 
 .navbar-right a,
 .list-inline a,
-.page-header a {
+.page-header a,
+.well a {
   color: #5cb85c;
 }
 
 .navbar-right a:hover,
 .list-inline a:hover,
-.page-header a:hover {
+.page-header a:hover,
+.well a:hover {
   color: #449d44;
 }
 
@@ -63,4 +65,18 @@ a:hover {
 
 hint {
   font-style: italic;
+}
+
+h5 {
+  font-size: 16px;
+}
+
+h5 small {
+  font-size: 14px;
+}
+
+.fa-circle {
+  font-size: 14px;
+  vertical-align: middle;
+  color: #5cb85c;
 }
