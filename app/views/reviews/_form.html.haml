@@ -1,10 +1,6 @@
 = simple_form_for [category, product, review] do |f|
-  - if review.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(review.errors.count, "error")} prohibited this review from being saved:"
-      %ul
-        - review.errors.full_messages.each do |msg|
-          %li= msg
+  = render "layouts/error_messages", object: review
+
   .form-group
     = f.label :content
     = f.text_area :content, class: 'form-control', placeholder: 'This product is amazing!'

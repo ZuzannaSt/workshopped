@@ -1,0 +1,8 @@
+- if object.errors.any?
+  .alert.fade-in.alert-danger.alert-dismissable
+    #error_explanation
+      %h2.text-center Oopsay!
+      %ul.list-unstyled
+        - object.errors.full_messages.each do |msg|
+          %li
+            %h4= msg
