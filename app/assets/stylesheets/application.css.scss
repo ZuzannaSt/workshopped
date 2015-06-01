@@ -14,11 +14,15 @@
   border-radius: 0px;
 }
 
-.navbar-right a {
+.navbar-right a,
+.list-inline a,
+.page-header a {
   color: #5cb85c;
 }
 
-.navbar-right a:hover{
+.navbar-right a:hover,
+.list-inline a:hover,
+.page-header a:hover {
   color: #449d44;
 }
 
@@ -51,4 +55,12 @@ a:hover {
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(68, 157, 68, .6);
           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(68, 157, 68, .6);
+}
+
+.boolean {
+  margin-right: 10px;
+}
+
+hint {
+  font-style: italic;
 }
