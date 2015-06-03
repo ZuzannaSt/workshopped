@@ -1,0 +1,12 @@
+- if user.products.any?
+  .products
+    %h4
+      %small Products from #{user.firstname}:
+    .row
+      - user.products.each_slice(2) do |slice|
+        -slice.each do |product|
+          .col-lg-6.text-center
+            =link_to category_product_path(product.category, product) do
+              .thumbnail.list-group
+                %i.fa.fa-rocket.fa-2x
+                %h4= product.title

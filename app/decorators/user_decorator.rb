@@ -15,7 +15,11 @@ class UserDecorator < Draper::Decorator
   end
 
   def last_active
-    model.last_sign_in_at.to_formatted_s(:pretty_date)
+    if model.last_sign_in_at.nil?
+      "Not active"
+    else
+      model.last_sign_in_at.to_formatted_s(:pretty_date)
+    end
   end
 
   def last_reviews
