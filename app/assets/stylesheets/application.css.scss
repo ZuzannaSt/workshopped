@@ -21,14 +21,18 @@ body {
 .navbar-right a,
 .list-inline a,
 .page-header a,
-.well a {
+.well a,
+.pagination li a, 
+.pagination .next a {
   color: #5cb85c;
 }
 
 .navbar-right a:hover,
 .list-inline a:hover,
 .page-header a:hover,
-.well a:hover {
+.well a:hover,
+.pagination li a:hover, 
+.pagination .next a:hover {
   color: #449d44;
 }
 
@@ -87,4 +91,9 @@ h5 small {
 
 .well {
   border-radius: 0px;
+}
+
+.pagination .active span {
+  background-color: #5cb85c;
+  border-color: #5cb85c;
 }

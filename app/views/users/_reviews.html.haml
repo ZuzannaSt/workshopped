@@ -1,15 +1,14 @@
 .reviews
   - if user.reviews.any?
     %h4
-      %small Latest reviews from
-      #{user.firstname}
-      %small :
+      %small Latest reviews from #{user.firstname}:
     - user.last_reviews.each do |review|
       .well
         .review
           %h5
-            %small Title:
-            = review.product.title
+            %small Product:
+            = link_to category_product_path(review.product.category, review.product) do 
+              = review.product.title
           %h5
             %small Rate:
             = review.decorate.rating
