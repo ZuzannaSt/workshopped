@@ -27,5 +27,7 @@
               = link_to category, method: :delete, data: { confirm: 'Are you sure?' } do
                 %i.fa.fa-trash
                 Destroy
+.text-center
+  = will_paginate categories, renderer: BootstrapPagination::Rails
 
 = link_to 'Back to the home page', root_path, class: 'btn btn-default'

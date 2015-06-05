@@ -41,9 +41,6 @@
         reviews from users
       = render reviews
 
-      .text-center
-        = will_paginate product.reviews, renderer: BootstrapPagination::Rails
-
     - else
       %h3
         %i.fa.fa-question

@@ -1,9 +1,10 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_admin, only: [:new, :edit, :update, :destroy, :create]
 
-  expose(:categories)
+  expose(:categories) { categories_per_page }
   expose(:category)
   expose(:product) { Product.new }
+  expose(:products, ancestor: :category)
 
   def index
   end
@@ -45,4 +46,7 @@ class CategoriesController < ApplicationController
       params.require(:category).permit(:name)
     end
 
+    def categories_per_page
+      Category.paginate(page: params[:page], per_page: 20)
+    end
 end
