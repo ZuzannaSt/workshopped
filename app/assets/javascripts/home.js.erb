@@ -1,0 +1,22 @@
+$(document).ready(function() {
+  $( ".category-row" ).on("mouseover", (function(){
+      $( this ).find( "h2" ).text("<%= Category.count %> categories to chose from");
+    }));
+  $( ".category-row" ).on("mouseout", (function(){
+      $( this ).find( "h2" ).text("Cool Categories");
+    }));
+
+  $( ".product-row" ).on("mouseover", (function(){
+      $( this ).find( "h2" ).text("<%= Product.count %> interesting products");
+    }));
+  $( ".product-row" ).on("mouseout", (function(){
+      $( this ).find( "h2" ).text("Cosmic Products");
+    }));
+
+  $( ".review-row" ).on("mouseover", (function(){
+      $( this ).find( "h2" ).text("<%= Review.count %> reviews written with love");
+    }));
+  $( ".review-row" ).on("mouseout", (function(){
+      $( this ).find( "h2" ).text("Heartfelt Reviews");
+    }));
+});

@@ -19,7 +19,7 @@
           .thumbnail.list-group
             %i.fa.fa-rocket.fa-3x
             %h2= product.title
-        - if current_user && current_user == product.user
+        - if is_owner
           .list-group
             %span
               = link_to edit_category_product_path(product.category, product) do

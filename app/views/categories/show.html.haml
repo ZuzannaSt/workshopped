@@ -6,7 +6,7 @@
         %b= category.name.upcase
 
 .row
-  - if current_user && current_user.admin?
+  - if is_admin
     %span
       = link_to edit_category_path(category) do
         %i.fa.fa-pencil
@@ -23,7 +23,7 @@
             %p=h truncate(product.description, length: 680)
 
   .col-lg-4
-    - if current_user && current_user.admin?
+    - if is_admin
       .rendered-form
         .page-header
           %h1

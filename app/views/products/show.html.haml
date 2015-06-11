@@ -1,6 +1,6 @@
 .row
   .col-lg-5.col-lg-offset-1
-    - if current_user && current_user == product.user
+    - if is_owner
       %br
       %span
         = link_to edit_category_product_path(category.id, product.id) do
@@ -19,20 +19,24 @@
             %h4
               %i.fa.fa-dollar.fa-1x
               = product.price
-        .col-lg-6.col-sm-6
+        .col-lg-4.col-sm-6
           %span
-            = link_to product.category do
-              %h4
-                %i.fa.fa-tag.fa-1x
-                = product.category.name
+            %h4
+              %i.fa.fa-heart.fa-1x
+              = product.average_rating.round(2)
+        .col-lg-4.col-sm-6
+          %span
+            %h5
+              %i.fa.fa-tag.fa-1x
+              = product.category.name
+
       %hr.divider
       .row
-        .col-lg-6.col-sm-6
-          %span.span-less-margin
-            %h4
-              %small Author:
-              = link_to product.user do
-                = product.user.decorate.fullname        
+        %span.span-less-margin
+          %h4
+            %small Author:
+            = link_to product.user do
+              = product.user.decorate.fullname
 
   .col-lg-3.col-lg-offset-1
     - if product.reviews.any?
@@ -56,4 +60,4 @@
 
 .row
   .col-lg-5.col-lg-offset-1
-    = link_to 'Back to products', category_path(product.category), class: 'btn btn-default'
+    = link_to 'Back to products', category_products_path(product.category), class: 'btn btn-default'

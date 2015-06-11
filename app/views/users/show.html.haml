@@ -3,11 +3,7 @@
     .page-header
       %h1
         = user.fullname
-        - if user.online?
-          %small online
-          %i.fa.fa-circle
-        - else
-          %small offline
+        = user.online?
 
 .row
   .col-lg-5.col-lg-offset-1

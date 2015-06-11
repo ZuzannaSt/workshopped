@@ -2,7 +2,7 @@
 %br
 
 .row
-  - if current_user && current_user.admin?
+  - if is_admin
     %span
       = link_to new_category_path do
         %i.fa.fa-plus
@@ -17,7 +17,7 @@
           .thumbnail.list-group
             %i.fa.fa-tag.fa-3x
             %h2= category.name
-        - if current_user && current_user.admin?
+        - if is_admin
           .list-group
             %span
               = link_to edit_category_path(category) do
