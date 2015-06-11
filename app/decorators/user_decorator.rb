@@ -1,13 +1,28 @@
 class UserDecorator < Draper::Decorator
+  include Draper::LazyHelpers
   delegate_all
 
   def fullname
      "#{user.firstname} #{user.lastname}"
   end
 
-
   def online?
-    updated_at > 5.minutes.ago
+    if updated_at > 5.minutes.ago
+      is_online
+    else
+      is_offline
+    end
+  end
+
+  def is_online
+    content_tag(:small) do
+      concat content_tag(:i, "", class: "fa fa-circle")
+      concat " online"
+    end
+  end
+
+  def is_offline
+    content_tag(:small, "offline")
   end
 
   def joined
@@ -23,7 +38,7 @@ class UserDecorator < Draper::Decorator
   end
 
   def last_reviews
-    model.reviews.last(5).reverse
+    model.reviews.limit(5)
   end
 
   def count_reviews

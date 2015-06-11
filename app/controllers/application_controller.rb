@@ -20,6 +20,8 @@ class ApplicationController < ActionController::Base
     end
 
     def user_activity
-      current_user.try :touch
+      if current_user && !current_user.new_record?
+        current_user.try :touch
+      end
     end
 end

@@ -16,4 +16,12 @@ module ApplicationHelper
     end
     nil
   end
+
+  def is_admin
+    current_user && current_user.admin?
+  end
+
+  def is_owner
+    current_user && current_user == product.user
+  end
 end
