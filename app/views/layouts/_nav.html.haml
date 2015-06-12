@@ -1,13 +1,20 @@
 %nav.navbar.navbar-default
   .container-fluid
     .navbar-header
+      %button.navbar-toggle{"data-target" => "#toggled", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
       =link_to root_path do
         %span.navbar-brand #{AppConfig.workshops_name}
-    %p.navbar-text.navbar-right
-      - if current_user
-        = current_user.decorate.fullname
-        = link_to 'Profile', user_path(current_user)
-        = link_to 'Logout', destroy_user_session_path, method: :delete
-      - else
-        = link_to 'Sign up', new_user_registration_path
-        = link_to 'Sign in', new_user_session_path
+    .collapse.navbar-collapse.navbar-ex1-collapse#toggled
+      %ul.nav.navbar-nav.navbar-right
+        - if current_user
+          %li.fullname
+            = current_user.decorate.fullname
+          %li= link_to 'Profile', user_path(current_user)
+          %li= link_to 'Logout', destroy_user_session_path, method: :delete
+        - else
+          %li= link_to 'Sign up', new_user_registration_path
+          %li= link_to 'Sign in', new_user_session_path

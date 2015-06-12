@@ -19,7 +19,7 @@ body {
   border-radius: 0px;
 }
 
-.navbar-right a,
+.navbar-header a,
 .list-inline a,
 .page-header a,
 .well a,
@@ -28,7 +28,7 @@ body {
   color: #5cb85c;
 }
 
-.navbar-right a:hover,
+ul .navbar-header a:hover,
 .list-inline a:hover,
 .page-header a:hover,
 .well a:hover,
@@ -97,4 +97,16 @@ h5 small {
 .pagination .active span {
   background-color: #5cb85c;
   border-color: #5cb85c;
+}
+
+.fullname {
+  display: block;
+  position: relative;
+  padding: 5px 15px;
+  margin-top: 10px;
+  color: #777;
+}
+
+.fullname:hover {
+  color: #5e5e5e;
 }
