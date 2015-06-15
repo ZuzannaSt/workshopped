@@ -1,16 +1,16 @@
 language: ruby
 rvm:
-  - 2.1.5
+- 2.1.5
 deploy:
   provider: heroku
   api_key:
-    secure: <%= ENV['API_SECRET'] %>
+    secure: HlK2mHZiLrzOIpqInQSeypYj4r/2rQVU1uJabQc5mVXCt4BMd+hllunT5P4k1klvd+dMbdVW1yv4Sup/L3AsQxFsrfJqtaa7JjcIvMz8VXv/xfkxrMlPnU/lflhE3NfwJ8MkuXU6Q4/IDLjMFFrGFQLJe2e79DM0KD3++eZDb0S+I9egfCKD0DrK/Qt/m4fBjsKt2/0vkW4jNe4zEwG9QDQRR8Sa54zwZxCVJgUKAAb0Q3UiWj7oFbt+VEBghFKjz/SqXmsGzsMli5ns+PliseJj+hNXLPpARcuQIGuzc2UPPaKlS1ttuN/3bBzZU6lPP2a7hqTW1+1iq6ovPnOOyx4GIKLCux86JqVkgItpohmpRh8Soj1YtAku1WRfd4iww7nMRhX5jgNSpILyoSzL6om1spgSwRqbdbetnAppTqt9lWdilWeg9qzw+1jNglFfJ5GAWwR6HUlyortjXVXxdCltS74ApsCArRsGwqMghE80nlWa5/hFP4lYN/M7leY0BLu3cBrg7Yctls1pYmI3Whj1lEgXKkrFfFGuQLsgma+gki62283amlQpBASEVwbUQQSJ8oOmiB0x2m+maxNPSL0/9YSsAXISSgo00aD0K9oMSZZl4n4IweHZem2QfjYXau8ULUgu0eBW3fj5Cd4b015B/WiS2b9QBzFZ+8UTSfo=
   run:
     - 'rake db:migrate'
-  app: <%= ENV['HEROKU_APP_NAME'] %>
+  app: zuzannast-workshops
   on:
     repo: ZuzannaSt/workshopped
 before_script:
-  - cp config/database.yml.travis config/database.yml
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
+- cp config/database.yml.travis config/database.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+- RAILS_ENV=test bundle exec rake db:migrate --trace
