@@ -8,19 +8,19 @@
 
   .row.text-center
     .col-md-4
-      = link_to categories_path do
-        .thumbnail.category-row.faa-parent.animated-hover
-          %i.fa.fa-tags.fa-5x.faa-shake.faa-slow
-          %h2 Cool Categories
-          #count-categories.hide
-            = @count_categories
-    .col-md-4
       = link_to category_path(@category) do
         .thumbnail.product-row.faa-parent.animated-hover
           %i.fa.fa-rocket.fa-5x.faa-float
           %h2 Cosmic Products
           #count-products.hide
             = @count_products
+    .col-md-4
+      = link_to categories_path do
+        .thumbnail.category-row.faa-parent.animated-hover
+          %i.fa.fa-tags.fa-5x.faa-shake.faa-slow
+          %h2 Nicely categorized
+          #count-categories.hide
+            = @count_categories
     .col-md-4
       = link_to category_product_path(@category, @product) do
         .thumbnail.review-row.faa-parent.animated-hover

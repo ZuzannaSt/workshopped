@@ -4,7 +4,7 @@ describe CategoriesController do
 
   let(:valid_attributes) { { name: 'MyString'} }
 
-  let(:valid_session) { {} }
+  let(:valid_session) { { "warden.user.user.key" => session["warden.user.user.key"] } }
 
   let(:user) { build(:user) }
 
