@@ -1,22 +1,26 @@
 $(document).ready(function() {
+  var count_categories = $("#count-categories").text();
+  var count_products = $("#count-products").text();
+  var count_reviews = $("#count-reviews").text();
+
   $( ".category-row" ).on("mouseover", (function(){
-      $( this ).find( "h2" ).text("<%= Category.count %> categories to chose from");
-    }));
+    $( this ).find( "h2" ).text(count_categories + "categories to chose from");
+  }));
   $( ".category-row" ).on("mouseout", (function(){
-      $( this ).find( "h2" ).text("Cool Categories");
-    }));
+    $( this ).find( "h2" ).text("Cool Categories");
+  }));
 
   $( ".product-row" ).on("mouseover", (function(){
-      $( this ).find( "h2" ).text("<%= Product.count %> interesting products");
-    }));
+    $( this ).find( "h2" ).text(count_products + "interesting products");
+  }));
   $( ".product-row" ).on("mouseout", (function(){
-      $( this ).find( "h2" ).text("Cosmic Products");
-    }));
+    $( this ).find( "h2" ).text("Cosmic Products");
+  }));
 
   $( ".review-row" ).on("mouseover", (function(){
-      $( this ).find( "h2" ).text("<%= Review.count %> reviews written with love");
-    }));
+    $( this ).find( "h2" ).text(count_reviews + "reviews written with love");
+  }));
   $( ".review-row" ).on("mouseout", (function(){
-      $( this ).find( "h2" ).text("Heartfelt Reviews");
-    }));
+    $( this ).find( "h2" ).text("Heartfelt Reviews");
+  }));
 });
