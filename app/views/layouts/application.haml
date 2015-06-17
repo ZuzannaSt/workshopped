@@ -14,5 +14,7 @@
     .container-fluid
       .row
         .col-lg-12
-          = render 'layouts/flash_messages' if flash.present?
+          - if flash.present?
+            .col-md-6.col-md-offset-3
+              = render 'layouts/flash_messages'
           = yield

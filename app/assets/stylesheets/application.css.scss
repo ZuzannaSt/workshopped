@@ -90,7 +90,7 @@ h5 small {
   color: #5cb85c;
 }
 
-.well {
+.well, .alert, .form-control, .input-group-addon {
   border-radius: 0px;
 }
 
@@ -111,7 +111,7 @@ h5 small {
   color: #5e5e5e;
 }
 
-.jumbotron, 
+.jumbotron,
 .jumbotron-category {
   background-color: #323232;
 }

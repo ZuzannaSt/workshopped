@@ -15,13 +15,21 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:firstname, :lastname, :email, :password, :password_confirmation, :current_password) }
     end
 
-    def authenticate_admin
-      redirect_to new_user_session_path unless current_user.admin?
+    def authenticate_admin!
+      unless current_user.admin?
+        redirect_to new_user_session_path, flash: { error: "Whoopsay! Looks like you're not an admin." }
+      end
     end
 
     def user_activity
       if current_user && !current_user.new_record?
         current_user.try :touch
+      end
+    end
+
+    def authenticate_user!
+      unless user_signed_in?
+        redirect_to new_user_session_path, flash: { error: "Oh noes! You are not authorised." }
       end
     end
 end
