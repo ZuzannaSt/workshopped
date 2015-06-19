@@ -24,4 +24,8 @@ module ApplicationHelper
   def is_owner
     current_user && current_user == product.user
   end
+
+  def is_himself
+    current_user && current_user == user
+  end
 end

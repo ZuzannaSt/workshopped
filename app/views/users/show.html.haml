@@ -15,7 +15,7 @@
       %h4
         %small Last name:
         = user.lastname
-      - if current_user && current_user == user
+      - if is_himself || is_admin
         %h4
           %small Email:
           = user.email
@@ -32,8 +32,7 @@
         = user.last_active
       %h5
         %small Reviewed:
-        = user.count_reviews
-        products
+        = user.counted_reviews
 
     = render "users/products"
 

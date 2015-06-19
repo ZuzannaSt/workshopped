@@ -10,7 +10,11 @@ class ProductDecorator < Draper::Decorator
   end
 
   def average_rating_rounded
-    model.average_rating.round(2)
+    if model.reviews.empty?
+      "No reviews"
+    else
+      model.average_rating.round(2)
+    end
   end
 
   def category_name

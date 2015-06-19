@@ -7,7 +7,7 @@ class UserDecorator < Draper::Decorator
   end
 
   def online?
-    if updated_at > 5.minutes.ago
+    if updated_at && updated_at > 5.minutes.ago
       is_online
     else
       is_offline
@@ -43,5 +43,13 @@ class UserDecorator < Draper::Decorator
 
   def count_reviews
     model.reviews.count
+  end
+
+  def counted_reviews
+    if count_reviews == 1
+      "1 product"
+    else
+      "#{count_reviews} products"
+    end
   end
 end

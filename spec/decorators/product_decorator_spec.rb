@@ -22,12 +22,13 @@ describe ProductDecorator do
     let(:review1) { create(:review, rating: 5, product: product) }
     let(:review2) { create(:review, rating: 4, product: product) }
 
-    before do
+    it 'displays product average rating rounded' do
       product.reviews << [review1, review2]
+      expect(product.average_rating_rounded).to eq 4.5
     end
 
-    it 'displays product average rating rounded' do
-      expect(product.average_rating_rounded).to eq 4.5
+    it 'displays message when no reviews' do
+      expect(product.average_rating_rounded).to eq 'No reviews'
     end
   end
 
