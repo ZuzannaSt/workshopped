@@ -3,11 +3,11 @@ class ProductsController < ApplicationController
   before_action :authenticate_owner!, only: [:edit, :update]
 
   expose(:category)
-  expose(:product)
+  expose_decorated(:product)
   expose(:products, ancestor: :category)
   expose(:review) { Review.new }
-  expose_decorated(:reviews, ancestor: :product) 
-  
+  expose_decorated(:reviews, ancestor: :product)
+
   def index
   end
 

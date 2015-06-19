@@ -1,0 +1,28 @@
+%h2= product.title
+%p
+  = product.description
+.row
+  .col-lg-4.col-sm-6
+    %span
+      %h4
+        %i.fa.fa-dollar.fa-1x
+        = product.price
+  .col-lg-4.col-sm-6
+    %span
+      %h4
+        %i.fa.fa-heart.fa-1x
+        = product.average_rating
+  .col-lg-4.col-sm-6
+    %span
+      %h5
+        = link_to product.category do
+          %i.fa.fa-tag.fa-1x
+          = product.category_name
+          
+%hr.divider
+.row
+  %span.span-less-margin
+    %h4
+      %small From:
+      = link_to product.user do
+        = product.owner

@@ -1,0 +1,18 @@
+- if product.reviews.any?
+  %h3
+    %i.fa.fa-star
+    reviews from users
+  = render reviews
+
+- else
+  %h3
+    %i.fa.fa-question
+    no reviews by far!
+
+- if current_user
+  .rendered-form
+    .page-header
+      %h2
+        Rate
+        %small and review!
+    = render 'reviews/form'
