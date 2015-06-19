@@ -3,7 +3,7 @@
     .vertical
       %h1.moved
         %i.fa.fa-tag.fa-1x
-        %b= category.name.upcase
+        %b= category.name_upcase
 
 .row
   - if is_admin
@@ -14,13 +14,7 @@
 %br
 
 .row.lower
-  - category.products.each_slice(3) do |slice|
-    -slice.each do |product|
-      .col-lg-4.text-center
-        = link_to category_product_path(product.category, product) do
-          .thumbnail
-            %h3= product.title
-            %p=h truncate(product.description, length: 680)
+  = render 'products'
 
   .col-lg-4
     - if is_admin

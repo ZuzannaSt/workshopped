@@ -16,4 +16,9 @@ class ProductDecorator < Draper::Decorator
   def category_name
     model.category.name
   end
+
+  def short_description
+    h.truncate(model.description, length: 680)
+  end
+
 end
