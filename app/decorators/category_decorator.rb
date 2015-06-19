@@ -6,5 +6,4 @@ class CategoryDecorator < Draper::Decorator
     model.name.upcase
   end
 
-
 end

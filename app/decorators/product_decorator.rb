@@ -9,7 +9,7 @@ class ProductDecorator < Draper::Decorator
     model.title.humanize
   end
 
-  def average_rating
+  def average_rating_rounded
     model.average_rating.round(2)
   end
 
